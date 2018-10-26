@@ -12,7 +12,7 @@ class TestFactorial(unittest.TestCase):
         Any method which starts with ``test_`` will considered as a test case.
         """
         res = fact(5)
-
+        print("demo")
         self.assertEqual(res, 120)
 
 
@@ -25,4 +25,4 @@ class TestFactorial(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    print("demo")
+   
