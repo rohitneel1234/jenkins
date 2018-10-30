@@ -13,6 +13,7 @@ class TestFactorial(unittest.TestCase):
         """
         res = fact(5)
         print("demo")
+         print("Hello")
         self.assertEqual(res, 120)
 
 
