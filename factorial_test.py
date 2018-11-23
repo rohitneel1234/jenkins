@@ -11,10 +11,10 @@ class TestFactorial(unittest.TestCase):
         The actual test.
         Any method which starts with ``test_`` will considered as a test case.
         """
-        res = fact(5)
+        res = fact(1)
         print("demo")
         print("Hello")
-        self.assertEqual(res, 120)
+        self.assertEqual(res, 1)
 
 
     def test_div(self):
