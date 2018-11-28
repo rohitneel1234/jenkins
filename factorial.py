@@ -14,8 +14,9 @@ def div(n):
     """
     Just divide
     """
-    res = 10 / n
-    return res
+    res = 20 / n
+    return res
+
 
 
 
