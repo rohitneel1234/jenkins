@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/html" src="https://github.com/aws/amazon-cognito-identity-js"></script>
+ <script type="text/html" src="https://github.com/aws/amazon-cognito-js"></script>	
+ <script src="config.js"></script>
+
+</head>
+
+<body>
+  
+			 <form name="login" method="post">
+				
+				
+					<label for="email" class="label">Email ID</label>
+					<input id="email" type="text" class="input">
+				         </br>
+					</br>
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+</br>
+					</br>
+				
+					
+				
+	<button type="button" onclick="signIn()">Sign In</button>
+				
+				</form> 
+<script>
+			
+ function signIn()
+{
+
+	var authenticationData = {
+        Username : document.getElementById('email').value, // your username here
+        Password : document.getElementById('pass').value, // your password here
+    };
+
+var authenticationDetails = 
+new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
+
+	var poolData={
+		UserPoolId:'us-west-2_mZEM8Lxns',
+		ClientId:'178qpq1atq0a4moerp2koq33tm',
+};
+	var userPool=new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
+    	var userData={
+			Username : document.getElementById('email').value,
+			Pool:userPool,
+};
+    var cognitoUser = 
+new AmazonCognitoIdentity.CognitoUser(userData);
+
+    cognitoUser.authenticateUser(authenticationDetails, {
+        onSuccess: function (result) {
+            var accessToken = result.getAccessToken().getJwtToken();
+	    console.log(accessToken);
+        },
+ 
+        onFailure: function(err) {
+            alert(err);
+        },
+    });
+
+}
+
+</script>
+			
+</body>
+
+</html>
