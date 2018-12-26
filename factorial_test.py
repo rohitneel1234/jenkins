@@ -14,7 +14,7 @@ class TestFactorial(unittest.TestCase):
         res = fact(1)
         print("demo")
         print("Hello")
-          print("Hi")
+        print("Hi")
         self.assertEqual(res, 1)
 
 
